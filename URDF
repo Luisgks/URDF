@@ -1,0 +1,221 @@
+<?xml version ="1.0"?>
+<robot xmlns:xsi="http://www.ros.org/wiki/xacro" name="carrito">
+<!--Inicio del robot-->
+
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0109871561420031 -4.22061664585686E-05 0.024875137726047"
+        rpy="0 0 0" />
+      <mass
+        value="0.359206427426703" />
+      <inertia
+        ixx="0.000745919479243098"
+        ixy="-6.44037746210449E-07"
+        ixz="-9.81943738517635E-06"
+        iyy="0.000899586444008521"
+        iyz="3.3526247702816E-08"
+        izz="0.00155839262682355" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/base_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="-2.6218E-08 2.0553E-08 -0.0073729"
+        rpy="0 0 0" />
+      <mass
+        value="0.021404" />
+      <inertia
+        ixx="8.6275E-06"
+        ixy="7.045E-10"
+        ixz="-7.8691E-12"
+        iyy="8.6277E-06"
+        iyz="6.0341E-12"
+        izz="1.4515E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/right_wheel_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/right_wheel_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.079767 -0.10196 0.0141"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.757E-08 2.7259E-08 0.0073729"
+        rpy="0 0 0" />
+      <mass
+        value="0.021404" />
+      <inertia
+        ixx="8.628E-06"
+        ixy="-6.0527E-10"
+        ixz="-5.0417E-12"
+        iyy="8.6272E-06"
+        iyz="-8.5184E-12"
+        izz="1.4515E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/left_wheel_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/left_wheel_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_link"
+    type="continuous">
+    <origin
+      xyz="-0.079667 0.10194 0.0141"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="fixed_ball_link">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 -2.8796E-15 0.008406"
+        rpy="0 0 0" />
+      <mass
+        value="0.0047815" />
+      <inertia
+        ixx="2.5167E-07"
+        ixy="-8.832E-23"
+        ixz="-3.2674E-23"
+        iyy="2.2595E-07"
+        iyz="-2.1722E-20"
+        izz="2.8869E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/fixed_ball_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carrito_description/meshes/fixed_ball_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fixed_ball_joint"
+    type="fixed">
+    <origin
+      xyz="0.059533 0 0"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fixed_ball_link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+</robot>
